@@ -5,7 +5,7 @@ import { Runner } from '../game';
 
 let runner = null;
 // initial setup for the game the  setup function is called when the dom gets loaded
-
+// https://heartbeat.fritz.ai/automating-chrome-dinosaur-game-part-1-290578f13907
 function setup() {
   // Initialize the game Runner.
   runner = new Runner('.game', {
