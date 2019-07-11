@@ -96,6 +96,7 @@ export default class Obstacle {
     this.xPos = dimensions.WIDTH + (offset || 0);
     this.yPos = 0;
     this.width = 0;
+    this.height = 0;
     this.collisionBoxes = [];
     this.gap = 0;
     this.speedOffset = 0;
@@ -116,7 +117,7 @@ export default class Obstacle {
     }
 
     this.width = this.typeConfig.width * this.size;
-
+    this.height = this.typeConfig.height * this.size;
     // Check if obstacle can be positioned at various heights.
     if (Array.isArray(this.typeConfig.yPos)) {
       const yPosConfig = this.typeConfig.yPos;

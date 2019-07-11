@@ -14,7 +14,7 @@ export default class Cloud {
    * @enum {number}
    */
   static config = {
-    HEIGHT: 14,
+    HEIGHT: 15,
     MAX_CLOUD_GAP: 400,
     MAX_SKY_LEVEL: 30,
     MIN_CLOUD_GAP: 100,

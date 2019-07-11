@@ -17,6 +17,7 @@ import TrexGroup from './TrexGroup';
 export default class Runner {
   static generation = 0;
   static trexaction = 'andar';
+  static ialogerror = 'LOG: --- ';
 
   static config = {
     ACCELERATION: 0.001,
@@ -91,6 +92,7 @@ export default class Runner {
     this.outerContainerEl = document.querySelector(outerContainerId);
     this.generationEl = document.querySelector('.generation');
     this.trexactionEl = document.querySelector('.trexaction');
+    this.ialogerrorEl = document.querySelector('.ialog');
     this.containerEl = null;
 
     this.config = Object.assign({}, Runner.config, options);
@@ -324,9 +326,11 @@ export default class Runner {
     if (lives > 0) {
       this.generationEl.innerText = `Modelo #${Runner.generation} | Vidas disponíveis x ${this.tRexGroup.lives()}`;
       this.trexactionEl.innerText = `Vou ${Runner.trexaction}.`;
+      this.ialogerrorEl = `LOG: ${Runner.ialogerror}`;
     } else {
       this.generationEl.innerHTML = `<div style="color: red;">Modelo #${Runner.generation}  |  GAME OVER</div>`;
       this.trexactionEl.innerHTML = `<div style="color: red;">Morri! Atualizando inteligencia...</div>`;
+      this.ialogerrorEl = `<div style="color: red;">LOG: ${Runner.ialogerror} ...</div>`;
     }
   }
 
@@ -356,12 +360,14 @@ export default class Runner {
         if (this.tRex.jumping) {
           // Speed drop, activated only when jump key is not pressed.
           this.tRex.setSpeedDrop();
+          Runner.trexaction = 'abaixar';
         } else if (!this.tRex.jumping && !this.tRex.ducking) {
           // Duck.
+          Runner.trexaction = 'pular';
           this.tRex.setDuck(true);
         }
       }
-      Runner.trexaction = 'pular';
+     
     } else if (this.crashed) {
       Runner.trexaction = 'andar';
       this.restart();

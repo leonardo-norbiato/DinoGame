@@ -51,11 +51,13 @@ export default class TrexGroup {
   }
 
   checkForCollision(obstacle) {
+    // console.log('---',obstacle);
     let crashes = 0;
     const state = {
       obstacleX: obstacle.xPos,
       obstacleY: obstacle.yPos,
       obstacleWidth: obstacle.width,
+      obstacleHeight: obstacle.height,
       speed: Runner.instance_.currentSpeed
     };
     this.tRexes.forEach(async (tRex) => {

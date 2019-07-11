@@ -1,7 +1,7 @@
 /**
  * Default game canvas size.
  */
-export const CANVAS_WIDTH = 900;
+export const CANVAS_WIDTH = 600;
 export const CANVAS_HEIGHT = 150;
 
 /**

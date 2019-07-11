@@ -8,7 +8,6 @@ import { getImageSprite } from './ImageSprite';
 import { getTimeStamp } from './utils';
 import CollisionBox from './CollisionBox';
 import Runner from './Runner';
-
 /**
  * T-rex game character.
  * @param {HTMLCanvas} canvas
@@ -351,6 +350,7 @@ export default class Trex {
     if (isDucking && this.status !== Trex.status.DUCKING) {
       this.update(0, Trex.status.DUCKING);
       this.ducking = true;
+      Runner.trexaction = 'abaixar';
     } else if (this.status === Trex.status.DUCKING) {
       this.update(0, Trex.status.RUNNING);
       this.ducking = false;
